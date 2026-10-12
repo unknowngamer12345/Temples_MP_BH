@@ -1,0 +1,540 @@
+  /* CSS Reset & Global Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #faf9f6;
+    color: #2b2b2b;
+    overflow-x: hidden;
+}
+
+/* Floating Translucent Header Bar */
+header {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 64px);
+    max-width: 1180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1.75rem 0.7rem 1.5rem;
+    background: rgba(28, 42, 68, 0.42);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50px;
+    z-index: 100;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.85);
+    padding-left: 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.65rem;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f1f5f9;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #c45c2e;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    color: #f1f5f9;
+    cursor: pointer;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    color: #c45c2e;
+}
+
+.search-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(8, 16, 32, 0.28), rgba(8, 16, 32, 0.38)),
+        url('mahabodhi.avif') no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6.5rem 5% 4rem;
+    color: #ffffff;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.65rem;
+    font-weight: 700;
+    margin-bottom: 1.15rem;
+    line-height: 1.15;
+    max-width: 980px;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary {
+    background: #c45c2e;
+    color: #ffffff;
+    padding: 0.85rem 2.1rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 16px rgba(196, 92, 46, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background: #b14f24;
+    box-shadow: 0 6px 20px rgba(196, 92, 46, 0.55);
+}
+
+.btn-pilgrimage {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.95rem 1.85rem 0.95rem 1.55rem;
+    background: linear-gradient(135deg, #e08a3c 0%, #c45c2e 48%, #9a3a18 100%);
+    border: 1px solid rgba(255, 214, 160, 0.55);
+    color: #fffaf3;
+    letter-spacing: 0.04em;
+    font-size: 0.98rem;
+    box-shadow:
+        0 8px 24px rgba(154, 58, 24, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    isolation: isolate;
+    animation: pilgrimagePulse 2.8s ease-in-out infinite;
+}
+
+.btn-pilgrimage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 38%,
+        rgba(255, 255, 255, 0.38) 50%,
+        transparent 62%,
+        transparent 100%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.btn-pilgrimage__ring {
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(255, 236, 210, 0.28);
+    border-radius: 50px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.btn-pilgrimage__icon,
+.btn-pilgrimage__arrow,
+.btn-pilgrimage__text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-pilgrimage__icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: #ffe7c2;
+    filter: drop-shadow(0 0 6px rgba(255, 214, 160, 0.7));
+}
+
+.btn-pilgrimage__arrow {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.btn-pilgrimage:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #f0a14d 0%, #d06834 48%, #a8441c 100%);
+    box-shadow:
+        0 12px 32px rgba(154, 58, 24, 0.55),
+        0 0 0 6px rgba(196, 92, 46, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-pilgrimage:hover::before {
+    transform: translateX(120%);
+}
+
+.btn-pilgrimage:hover .btn-pilgrimage__arrow {
+    transform: translateX(4px);
+}
+
+.btn-pilgrimage:active {
+    transform: translateY(-1px);
+}
+
+.btn-pilgrimage:focus-visible {
+    outline: 2px solid #f6d7a8;
+    outline-offset: 4px;
+}
+
+@keyframes pilgrimagePulse {
+    0%, 100% {
+        box-shadow:
+            0 8px 24px rgba(154, 58, 24, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+    50% {
+        box-shadow:
+            0 10px 30px rgba(224, 138, 60, 0.62),
+            0 0 22px rgba(246, 173, 85, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.32);
+    }
+}
+
+/* Regions Section */
+.regions-section {
+    padding: 6rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.regions-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #1a202c;
+    margin-bottom: 3rem;
+}
+
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+/* State Cards */
+.card {
+    position: relative;
+    height: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem;
+    text-align: left;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card.mp {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%),
+                url('Kandariya.jpg') center/cover;
+}
+
+.card.bihar {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%),
+                url('mahabodhi.avif') center/cover;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #f6ad55;
+    margin-bottom: 0.5rem;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+}
+
+.btn-card {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 0.6rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: fit-content;
+    transition: background 0.3s ease;
+}
+
+.btn-card:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    header {
+        width: calc(100% - 28px);
+        padding: 0.65rem 1.1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    nav {
+        display: none;
+    }
+    .regions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+#regions {
+    background-color: linen;
+}
+/* Jyotirlinga Map Journey */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 12, 22, 0.88);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    padding: 1.25rem;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.map-modal {
+    background: linear-gradient(180deg, #182636 0%, #101826 100%);
+    border: 1px solid rgba(246, 173, 85, 0.25);
+    padding: 1.6rem 1.6rem 1.4rem;
+    border-radius: 22px;
+    width: min(920px, 100%);
+    max-height: 92vh;
+    overflow: auto;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+    position: relative;
+}
+
+.map-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.map-kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f6ad55;
+    margin-bottom: 0.35rem;
+}
+
+#shrineName {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+}
+
+#shrinePlace {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
+}
+
+#stopIndex {
+    color: #94a3b8;
+    font-size: 0.82rem;
+    margin-bottom: 0.6rem;
+}
+
+.map-wrap {
+    width: min(420px, 100%);
+    margin: 0 auto;
+}
+
+.india-map {
+    width: 100%;
+    height: auto;
+    max-height: 58vh;
+    display: block;
+    overflow: visible;
+}
+
+.india-land {
+    fill: url(#landFill);
+    stroke: rgba(246, 173, 85, 0.45);
+    stroke-width: 1.4;
+}
+
+.pilgrim-route {
+    stroke: #f6ad55;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: url(#softGlow);
+}
+
+.shrine-dot {
+    fill: #94a3b8;
+    stroke: #fff7ed;
+    stroke-width: 1;
+}
+
+.shrine-marker.visited .shrine-dot {
+    fill: #c45c2e;
+}
+
+.shrine-marker.current .shrine-dot {
+    fill: #f6ad55;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(1.45);
+}
+
+.shrine-label {
+    fill: rgba(226, 232, 240, 0.55);
+    font-size: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    pointer-events: none;
+}
+
+.shrine-marker.current .shrine-label,
+.shrine-marker.visited .shrine-label {
+    fill: #ffe7c2;
+}
+
+.quote-box {
+    display: none;
+    animation: fadeInQuote 0.8s ease forwards;
+    padding: 2.5rem 1rem 1.5rem;
+}
+
+@keyframes fadeInQuote {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.quote-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: #f6ad55;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.quote-box p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    font-style: italic;
+    margin-bottom: 1.8rem;
+}
+
+.quote-box .map-kicker {
+    margin-bottom: 0.6rem;
+}

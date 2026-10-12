@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Geographies: Temples of Madhya Pradesh & Bihar</title>
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Floating Translucent Header & Navigation Menu -->
+    <header>
+        <div class="logo">
+            <span>Sacred</span>
+            <span>Geographies</span>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="./mp.html">Madhya Pradesh</a></li>
+                    <li><a href="./bh.html">Bihar</a></li>
+                    <li><a href="#regions">Explore All</a></li>
+                    <li><a href="./gallary.html">Gallery</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" type="button" aria-label="Search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Full-Width Hero Section -->
+    <section class="hero">
+        <h1>The Timeless Shrines of Madhya Pradesh & Bihar</h1>
+        <p>Embark on a Sacred Journey through India's Heartland</p>
+        <button class="btn-primary btn-pilgrimage" id="beginJourneyBtn" type="button">
+            <span class="btn-pilgrimage__ring" aria-hidden="true"></span>
+            <svg class="btn-pilgrimage__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3.2c.4 1.6 1.4 3 2.8 3.8-1.4.8-2.4 2.2-2.8 3.8-.4-1.6-1.4-3-2.8-3.8 1.4-.8 2.4-2.2 2.8-3.8Z" fill="currentColor"/>
+                <path d="M12 11.8c.35 1.4 1.2 2.6 2.4 3.3-1.2.7-2.05 1.9-2.4 3.3-.35-1.4-1.2-2.6-2.4-3.3 1.2-.7 2.05-1.9 2.4-3.3Z" fill="currentColor" opacity="0.85"/>
+                <path d="M12 20.2v.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <span class="btn-pilgrimage__text">Begin Your Pilgrimage</span>
+            <svg class="btn-pilgrimage__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h12M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Dual-State Gateway Section -->
+    <section class="regions-section" id="regions">
+        <h2>Explore the Regions</h2>
+        <div class="regions-grid">
+            <!-- Madhya Pradesh Card -->
+            <div class="card mp" id="mp">
+                <span class="card-tag">Madhya Pradesh</span>
+                <h3>Temples of MP: Khajuraho & Ujjain</h3>
+                <a href="./mp.html" class="btn-card">Discover Madhya Pradesh</a>
+            </div>
+
+            <!-- Bihar Card -->
+            <div class="card bihar" id="bihar">
+                <span class="card-tag">Bihar</span>
+                <h3>Temples of Bihar: Bodh Gaya & Beyond</h3>
+                <a href="./bh.html" class="btn-card">Discover Bihar</a>
+            </div>
+        </div>
+    </section>
+<!-- Journey Animation Modal -->
+<div class="modal-overlay" id="journeyModal">
+    <div class="modal-container">
+        <div id="animationStage">
+            <p style="font-size: 1.1rem; color: #cbd5e1; letter-spacing: 1px;">Driving toward sacred lands...</p>
+            <div class="road-track">
+                <div class="car-icon" id="car">🚗</div>
+            </div>
+        </div>
+
+        <div class="quote-box" id="quoteBox">
+            <h3>Bhagavad Gita Wisdom</h3>
+            <p id="gitaText">"You have a right to performed your prescribed duty, but you are not entitled to the fruits of action."</p>
+            <button class="btn-primary" id="closeModalBtn">Explore the Temples</button>
+        </div>
+    </div>
+</div>
+<script>
+    const quotes = [
+        "\"You have a right to performed your prescribed duty, but you are not entitled to the fruits of action.\" — Bhagavad Gita 2.47",
+        "\"When meditation is mastered, the mind is unwavering like the flame of a lamp in a windless place.\" — Bhagavad Gita 6.19",
+        "\"A person can rise through the efforts of their own mind; they certainly should not degrade themselves.\" — Bhagavad Gita 6.5",
+        "\"The soul is never born nor dies at any time. It has not come into being, does not come into being, and will not come into being.\" — Bhagavad Gita 2.20"
+    ];
+
+    const beginBtn = document.getElementById('beginJourneyBtn');
+    const modal = document.getElementById('journeyModal');
+    const car = document.getElementById('car');
+    const animationStage = document.getElementById('animationStage');
+    const quoteBox = document.getElementById('quoteBox');
+    const gitaText = document.getElementById('gitaText');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    beginBtn.addEventListener('click', () => {
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        gitaText.innerText = randomQuote;
+
+        modal.classList.add('active');
+        animationStage.style.display = 'block';
+        quoteBox.style.display = 'none';
+        car.classList.remove('driving');
+        
+        void car.offsetWidth;
+        car.classList.add('driving');
+
+        setTimeout(() => {
+            animationStage.style.display = 'none';
+            quoteBox.style.display = 'block';
+        }, 2300);
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.getElementById('regions').scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>

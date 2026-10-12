@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery: Architectural Marvels | Sacred Geographies</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f5f2eb; /* Soft eye-friendly linen/beige */
+            color: #2b2b2b;
+            overflow-x: hidden;
+        }
+
+        /* Floating Translucent Header Bar */
+        header {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 2rem;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #f6ad55;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            min-height: 50vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), 
+                        url('./mahadev.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 5% 3rem 5%;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        /* Gallery Container & Grid */
+        .gallery-container {
+            max-width: 1350px;
+            margin: 4rem auto;
+            padding: 0 3%;
+        }
+
+        .gallery-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 320px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: #ffffff;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 70%, transparent 100%);
+            color: #ffffff;
+        }
+
+        .gallery-caption h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            color: #f6ad55;
+        }
+
+        .gallery-caption p {
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Navigation Bar -->
+    <header>
+        <div class="logo">Sacred Geographies</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mp.html">Madhya Pradesh</a></li>
+                <li><a href="bh.html">Bihar</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Visual Architectural Gallery</h1>
+        <p>A Photographic Exploration of Heritage Shrines Across MP & Bihar</p>
+    </section>
+
+    <!-- Gallery Content -->
+    <div class="gallery-container">
+        
+        <!-- Madhya Pradesh Section -->
+        <h2 class="gallery-section-title">Madhya Pradesh Monuments</h2>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="Kandariya.jpg" alt="Khajuraho Temples">
+                <div class="gallery-caption">
+                    <h4>Kandariya Mahadev, Khajuraho</h4>
+                    <p>Chandella Dynasty • 10th Century Nagara Architecture</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="./mahakaleshwar.jpg" alt="Mahakaleshwar Ujjain">
+                <div class="gallery-caption">
+                    <h4>Mahakaleshwar Jyotirlinga, Ujjain</h4>
+                    <p>Banks of Kshipra River • South-Facing Shrine</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="./omkareshwar.jpg" alt="Omkareshwar">
+                <div class="gallery-caption">
+                    <h4>Omkareshwar Island Shrine</h4>
+                    <p>Mandhata Island • Paramara Architectural Legacy</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bihar Section -->
+        <h2 class="gallery-section-title">Bihar Heritage Sites</h2>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="./mahabodhi.avif" alt="Mahabodhi Temple">
+                <div class="gallery-caption">
+                    <h4>Mahabodhi Temple Complex</h4>
+                    <p>Bodh Gaya • UNESCO World Heritage Site</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="./nalanda.jpg" alt="Nalanda University Ruins">
+                <div class="gallery-caption">
+                    <h4>Nalanda Mahavihara Ruins</h4>
+                    <p>Nalanda • 5th Century Ancient University Center</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="./patan devi.jpg" alt="Patan Devi Temple">
+                <div class="gallery-caption">
+                    <h4>Patan Devi Temple</h4>
+                    <p>Patna • Historic Shakti Peetha Sanctuary</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bihar: Temples & Architecture | Sacred Geographies</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f5f2eb; /* Soft eye-friendly linen/beige */
+            color: #2b2b2b;
+            overflow-x: hidden;
+        }
+
+        /* Floating Translucent Header Bar */
+        header {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 2rem;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #f6ad55;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            min-height: 60vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), 
+                        url('./mahabodhi.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 5% 4rem 5%;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            max-width: 900px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        /* Main Content Grid */
+        .content-container {
+            max-width: 1350px;
+            margin: 4rem auto;
+            padding: 0 3%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .content-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards Column (Left) */
+        .cards-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .temple-card {
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .temple-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .temple-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .temple-info {
+            padding: 1.25rem;
+        }
+
+        .temple-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .temple-info ul {
+            list-style: none;
+            font-size: 0.88rem;
+            color: #475569;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .temple-info ul li span {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* Table Column (Right) */
+        .table-column {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .table-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1a202c;
+            margin-bottom: 1.25rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #1e293b;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+        td {
+            color: #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Navigation Bar -->
+    <header>
+        <div class="logo">Sacred Geographies</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mp.html">Madhya Pradesh</a></li>
+                <li><a href="bihar.html" class="active">Bihar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>Bihar: The Cradle of Enlightenment</h1>
+        <p>A Scholarly Journey Through Ancient Shrines & UNESCO Heritage</p>
+    </section>
+
+    <!-- Main Content Layout (2-Column Grid) -->
+    <div class="content-container">
+        
+        <!-- Left Column: Scannable Temple Cards -->
+        <div class="cards-column">
+            
+            <!-- Card 1 -->
+            <div class="temple-card">
+                <img src="./mahabodhi.avif" alt="Mahabodhi Temple">
+                <div class="temple-info">
+                    <h3>Mahabodhi Temple Complex</h3>
+                    <ul>
+                        <li><span>Location:</span> Bodh Gaya</li>
+                        <li><span>Era:</span> Ancient Origins, Rebuilt Over Time</li>
+                        <li><span>Style:</span> Unique Pyramidal Shikhara Architecture</li>
+                        <li><span>Highlight:</span> Sacred Site of Buddha’s Enlightenment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="temple-card">
+                    <img src="nalanda.jpg" alt="Nalanda Mahavihara">
+                <div class="temple-info">
+                    <h3>Nalanda Mahavihara</h3>
+                    <ul>
+                        <li><span>Location:</span> Nalanda</li>
+                        <li><span>Era:</span> 5th Century CE – 12th Century CE</li>
+                        <li><span>Style:</span> Ancient Monastic Brick Architecture</li>
+                        <li><span>Highlight:</span> World-Renowned Ancient Center of Learning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="temple-card">
+                <img src="./patan devi.jpg" alt="Patan Devi Temple">
+                <div class="temple-info">
+                    <h3>Patan Devi Temple</h3>
+                    <ul>
+                        <li><span>Location:</span> Patna (Ancient Pataliputra)</li>
+                        <li><span>Significance:</span> One of the 51 Sacred Shakti Peethas</li>
+                        <li><span>Architecture:</span> Traditional Brick & Stone Sanctuary</li>
+                        <li><span>Highlight:</span> Historic Spiritual Landmark of Patna</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Comparative Architecture Data Table -->
+        <div class="table-column">
+            <h3>Comparative Architectural Data</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Temple / Site</th>
+                            <th>Location</th>
+                            <th>Era</th>
+                            <th>Architectural Style</th>
+                            <th>Key Feature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mahabodhi</strong></td>
+                            <td>Bodh Gaya</td>
+                            <td>Ancient Origins</td>
+                            <td>Pyramidal Shikhara</td>
+                            <td>Direct association with Gautama Buddha</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nalanda</strong></td>
+                            <td>Nalanda</td>
+                            <td>5th–12th Cent.</td>
+                            <td>Monastic Brickwork</td>
+                            <td>Expansive multi-level university campus</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Patan Devi</strong></td>
+                            <td>Patna</td>
+                            <td>Ancient / Medieval</td>
+                            <td>Shakti Peetha Style</td>
+                            <td>One of the oldest revered shrines in Pataliputra</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
